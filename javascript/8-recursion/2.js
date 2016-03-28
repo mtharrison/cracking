@@ -34,10 +34,11 @@ Assert(howManyPaths(2) === 2);
 Assert(howManyPaths(3) === 6);
 Assert(howManyPaths(10) === 48620);
 
+// FOLLOW UP
 // Imagine certain squares are “off limits”, such that the robot can not
 // step on them Design an algorithm to get all possible paths for the robot
 
-var howManyPaths = function (n, offlimits, point) {
+var howManyPathsWithBlocked = function (n, offlimits, point) {
 
     var finalSquare = n - 1;
     point = point || {x: 0, y: 0};
@@ -52,8 +53,19 @@ var howManyPaths = function (n, offlimits, point) {
         return 1;
     }
 
-    return howManyPaths(n, { x: x, y: y + 1}) + 
-           howManyPaths(n, { x: x + 1, y: y});
+    var isOffLimits = function (pt) {
+        
+        for (var i = 0; i < offlimits.length; i++) {
+            if (offlimits[i].x === pt.x &&
+                offlimits[i].y === pt.y) {
+                return true;
+            }
+        }
+        return false;
+    };
+
+    return (isOffLimits({ x: x, y: y + 1}) ? 0 : howManyPathsWithBlocked(n, offlimits, { x: x, y: y + 1})) + // num by going down
+           (isOffLimits({ x: x + 1, y: y}) ? 0 : howManyPathsWithBlocked(n, offlimits, { x: x + 1, y: y}));  // num by going right
 };
 
-Assert(howManyPaths(3, [ {x: 1, y: 1} ] ) === 6);
+Assert(howManyPathsWithBlocked(3, [ {x: 1, y: 1} ] ) === 2);
