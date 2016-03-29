@@ -1,57 +1,34 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include "BitVector.h"
 
-// This assumes we're looking at a lower-case only word
-// and uses a bit vector of 32bits long to store previously
-// seen letters
+bool containsOnlyUniqueChars(char * test) {
 
-int containsOnlyUniqueCharsBitVector(char * test) {
+    // Get a bitvector of 255 bits (for entire ascii char)
 
-    __int32_t bv = 0;
-    int ptr = 0;
+    BitVector *v = BitVectorNew(255);
 
-    while (test[ptr] != '\0') {
-        char l = test[ptr] % 97;
-        if (bv & (1 << l)) {
-            return 0;
+    int ptr = -1;
+
+    while (test[++ptr] != '\0') {
+        char l = test[ptr];
+        if (BitVectorGet(v, l)) {
+            printf("Seen letter %c more than once at position %d\n", l, ptr);
+            return false;
         }
-        bv |= 1 << l;
-        ptr++;
+        BitVectorSet(v, l);
     }
 
-    return 1;
+    return true;
 }
-
-// This algorithm trades space for time
-// It's worst case is 0(n^2) where n is strlen
-
-int containsOnlyUniqueChars(char* test) {
-
-    int ptr1 = 0;
-    int ptr2 = 1;
-    int len = strlen(test);
-
-    while (ptr1 < (len - 2)) {
-        for (int i = ptr2; i < len; i++) {
-          if (test[i] == test[ptr1]) {
-              return 0;
-          }
-        }
-        ptr1++;
-        ptr2 = ptr1 + 1;
-    }
-
-    return 1;
-} 
 
 int main (int argc, char** argv) {
 
     char* string1 = "abcdefghijklmnopqrstuvwxyz";
     char* string2 = "quickquick";
 
-    printf("String 1 tests %s\n", containsOnlyUniqueChars(string1) == 1 ? "true" : "false");
-    printf("String 2 tests %s\n", containsOnlyUniqueChars(string2) == 1 ? "true" : "false");
-
-    printf("String 1 tests %s\n", containsOnlyUniqueCharsBitVector(string1) == 1 ? "true" : "false");
-    printf("String 2 tests %s\n", containsOnlyUniqueCharsBitVector(string2) == 1 ? "true" : "false");
+    printf("String 1 tests %s\n", containsOnlyUniqueChars(string1) ? "true" : "false");
+    printf("String 2 tests %s\n", containsOnlyUniqueChars(string2) ? "true" : "false");
 }
