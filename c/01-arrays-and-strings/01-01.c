@@ -6,7 +6,7 @@
 
 bool containsOnlyUniqueChars(char * test) {
 
-    // Get a bitvector of 255 bits (for entire ascii char)
+    // Get a bitvector of 255 bits (for entire ascii charset)
 
     BitVector *v = BitVectorNew(255);
 
