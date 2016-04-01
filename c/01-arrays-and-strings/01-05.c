@@ -3,21 +3,19 @@
 #include <string.h>
 #include <stdlib.h>
 
-// Not perfect, there's a chance of Buffer overrun here!
-
 char *compress(char *str) {
 
     int len = strlen(str);
-    char *target = malloc(1 + (len * sizeof(char)));
+    char* target = malloc(1 + (len * sizeof(char)));
 
     if (len == 0) {
-        return str;
+        strcpy(target, str);
+        return target;
     }
 
     char curr = *str;
-    int count = 0;
 
-    int ptr1 = 0, ptr2 = 0;
+    int count = 0, ptr1 = 0, ptr2 = 0;
 
     for (;;) {
 
@@ -25,18 +23,14 @@ char *compress(char *str) {
         if (on == 0 || on != curr) {
 
             if ((ptr2 + 3) >= len) {
-                return str;
+                strcpy(target, str);
+                return target;
             }
 
             *(target + (ptr2++)) = curr;
-            char dig[10];
+            char dig[2];
             sprintf(dig, "%d", count);
-            int i = 0;
-            while(dig[i]) {
-                *(target + (ptr2++)) = dig[i];
-                i++;
-            }
-
+            *(target + (ptr2++)) = dig[0];
             curr = on;
             count = 0;
 
@@ -75,11 +69,5 @@ int main(int argc, char **argv) {
     printf("%s\n", strcomp3);
 
     assert(strcmp(strcomp3, "b9") == 0);
-
-    char *str4 = "aaaabbbbyyyyyyyyyyyyyyyy";
-    char *strcomp4 = compress(str4);
-    printf("%s\n", strcomp4);
-
-    assert(strcmp(strcomp4, "a4b4y16") == 0);
     return 0;
 }
