@@ -13,5 +13,7 @@ STDPATTERN = $(CXX) $(CFLAGS) $(OUTFILE) $(INFILE)
 	$(STDPATTERN)
 01-04:
 	$(STDPATTERN)
+01-05:
+	$(STDPATTERN)
 clean:
 	rm *.out
