@@ -1,13 +1,18 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <BitVector.h>
+#include <string.h>
+#include "BitVector.h"
 
 BitVector *BitVectorNew(size_t numSlots) {
 
     BitVector *v = malloc(sizeof(BitVector));
     v->numSlots = numSlots;
-    v->slots = malloc(sizeof(char) * ceil((float) numSlots / sizeof(char)));
+
+    size_t bytes = sizeof(char) * ceil((float) numSlots / sizeof(char));
+
+    v->slots = malloc(bytes);
+    memset(v->slots, 0, bytes);
 
     return v;
 }
