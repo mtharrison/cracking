@@ -10,16 +10,20 @@ bool containsOnlyUniqueChars(char * test) {
 
     BitVector *v = BitVectorNew(255);
 
-    int ptr = -1;
+    int pos = 0;
+    char l;
 
-    while (test[++ptr] != '\0') {
-        char l = test[ptr];
+    while ((l = *(test + pos))) {
+
         if (BitVectorGet(v, l)) {
-            printf("Seen letter %c more than once at position %d\n", l, ptr);
+            printf("Seen letter %c more than once at position %d\n", l, pos);
             return false;
         }
         BitVectorSet(v, l);
+        pos++;
     }
+
+    free(v);
 
     return true;
 }

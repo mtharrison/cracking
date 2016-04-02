@@ -33,6 +33,9 @@ void zeroRowAndCol(int matrix[N][M]) {
             }
         }
     }
+
+    free(row_bv);
+    free(col_bv);
 }
 
 void printMatrix(int matrix[N][M]) {

@@ -61,7 +61,6 @@ int main(int argc, char **argv) {
     char *str2 = "aaa";
     char *strcomp2 = compress(str2);
     printf("%s\n", strcomp2);
-
     assert(strcmp(strcomp2, "aaa") == 0);
 
     char *str3 = "bbbbbbbbb";
