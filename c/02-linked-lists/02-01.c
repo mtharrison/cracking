@@ -23,40 +23,40 @@ void printList (Node *node) {
 // It only requires a single pass over the list
 // so it's O(n) time and O(1) space
 
-void removeListDuplicates (Node *node) {
+void removeListDuplicates(Node *node) {
 
     BitVector *bv = BitVectorNew(255);
+    Node *previous = node;
 
-    for (;;) {
-
-        if (!node->next) {
-            break;
+    while (node != NULL) {
+        if (BitVectorGet(bv, node->val)) {
+            previous->next = node->next;
+        } else {
+            BitVectorSet(bv, node->val);
+            previous = node;
         }
+        node = node->next;
+    }
+}
 
-        BitVectorSet(bv, node->val);
+// This has to check N - 1 - i elements for every ith element
+// in the list meaning it has O(n^2) time and O(1) space
+// it doesn't however need to allocate any additional memory (aside from 2 pointers)
 
-        // Check if the next item in the list is a duplicate
+void removeListDuplicatesNoBuffer(Node *node) {
 
-        if (BitVectorGet(bv, node->next->val)) {
+    while (node) {
+        Node *runner = node->next;
+        Node *prev = node;
 
-            // Find the next element that isn't a duplicate OR the end
-
-            Node *temp = node->next;
-
-            for (;;) {
-
-                if (temp == NULL) {
-                    node->next = NULL;
-                    return;
-                }
-
-                if (!BitVectorGet(bv, temp->val)) {
-                    node->next = temp;
-                    break;
-                }
-
-                temp = temp->next;
+        while (runner) {
+            if (runner->val == node->val) {
+                prev->next = runner->next;
             }
+            else {
+                prev = runner;
+            }
+            runner = runner->next;
         }
 
         node = node->next;
@@ -65,14 +65,23 @@ void removeListDuplicates (Node *node) {
 
 int main(int argc, char **argv) {
 
-    Node D = { 12, NULL };
-    Node C = { 6, &D };
-    Node B = { 8, &C };
-    Node A = { 12, &B };
+    Node D = { 16, NULL };
+    Node C = { 2, &D };
+    Node B = { 2, &C };
+    Node A = { 16, &B };
 
     printList(&A);
     removeListDuplicates(&A);
     printList(&A);
+
+    Node H = { 16, NULL };
+    Node G = { 2, &H };
+    Node F = { 2, &G };
+    Node E = { 16, &F };
+
+    printList(&E);
+    removeListDuplicatesNoBuffer(&E);
+    printList(&E);
 
     return 0;
 }
