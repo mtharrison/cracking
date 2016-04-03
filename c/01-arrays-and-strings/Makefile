@@ -19,5 +19,7 @@ STDPATTERN = $(CXX) $(CFLAGS) $(OUTFILE) $(INFILE)
 	$(STDPATTERN)
 01-07:
 	$(STDPATTERN) $(UTILS)/BitVector.c
+01-08:
+	$(STDPATTERN)
 clean:
 	rm *.out
