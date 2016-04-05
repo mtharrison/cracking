@@ -7,6 +7,8 @@ STDPATTERN = $(CXX) $(CFLAGS) $(OUTFILE) $(INFILE)
 
 02-01:
 	$(STDPATTERN) $(UTILS)/BitVector.c
+02-02:
+	$(STDPATTERN)
 02-03:
 	$(STDPATTERN)
 clean:
