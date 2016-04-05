@@ -1,25 +1,9 @@
 #include <stdio.h>
 #include "BitVector.h"
+#include "LinkedList.h"
 
-typedef struct node_t {
-    char val;
-    struct node_t *next;
-} Node;
 
-void printList (Node *node) {
-
-    for (;;) {
-        printf("%d --> ", node->val);
-        node = node->next;
-
-        if (!node) {
-            break;
-        }
-    }
-    printf("NULL\n");
-}
-
-void removeItemFromMiddleOfList(Node *node) {
+void removeItemFromMiddleOfList(LinkedListNode *node) {
 
     if (!node || !node->next) {
         return;
@@ -30,14 +14,14 @@ void removeItemFromMiddleOfList(Node *node) {
 
 int main(int argc, char **argv) {
 
-    Node D = { 4, NULL };
-    Node C = { 3, &D };
-    Node B = { 2, &C };
-    Node A = { 1, &B };
+    LinkedListNode D = { 4, NULL };
+    LinkedListNode C = { 3, &D };
+    LinkedListNode B = { 2, &C };
+    LinkedListNode A = { 1, &B };
 
-    printList(&A);
+    LinkedListPrint(&A);
     removeItemFromMiddleOfList(&B);
-    printList(&A);
+    LinkedListPrint(&A);
 
     return 0;
 }

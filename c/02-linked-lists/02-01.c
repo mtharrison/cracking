@@ -1,32 +1,16 @@
 #include <stdio.h>
 #include "BitVector.h"
+#include "LinkedList.h"
 
-typedef struct node_t {
-    char val;
-    struct node_t *next;
-} Node;
-
-void printList (Node *node) {
-
-    for (;;) {
-        printf("%d --> ", node->val);
-        node = node->next;
-
-        if (!node) {
-            break;
-        }
-    }
-    printf("NULL\n");
-}
 
 // This uses a BitVector to store lookups against each value
 // It only requires a single pass over the list
 // so it's O(n) time and O(1) space
 
-void removeListDuplicates(Node *node) {
+void removeListDuplicates(LinkedListNode *node) {
 
     BitVector *bv = BitVectorNew(255);
-    Node *previous = node;
+    LinkedListNode *previous = node;
 
     while (node != NULL) {
         if (BitVectorGet(bv, node->val)) {
@@ -43,11 +27,11 @@ void removeListDuplicates(Node *node) {
 // in the list meaning it has O(n^2) time and O(1) space
 // it doesn't however need to allocate any additional memory (aside from 2 pointers)
 
-void removeListDuplicatesNoBuffer(Node *node) {
+void removeListDuplicatesNoBuffer(LinkedListNode *node) {
 
     while (node) {
-        Node *runner = node->next;
-        Node *prev = node;
+        LinkedListNode *runner = node->next;
+        LinkedListNode *prev = node;
 
         while (runner) {
             if (runner->val == node->val) {
@@ -65,23 +49,23 @@ void removeListDuplicatesNoBuffer(Node *node) {
 
 int main(int argc, char **argv) {
 
-    Node D = { 16, NULL };
-    Node C = { 2, &D };
-    Node B = { 2, &C };
-    Node A = { 16, &B };
+    LinkedListNode D = { 16, NULL };
+    LinkedListNode C = { 2, &D };
+    LinkedListNode B = { 2, &C };
+    LinkedListNode A = { 16, &B };
 
-    printList(&A);
+    LinkedListPrint(&A);
     removeListDuplicates(&A);
-    printList(&A);
+    LinkedListPrint(&A);
 
-    Node H = { 16, NULL };
-    Node G = { 2, &H };
-    Node F = { 2, &G };
-    Node E = { 16, &F };
+    LinkedListNode H = { 16, NULL };
+    LinkedListNode G = { 2, &H };
+    LinkedListNode F = { 2, &G };
+    LinkedListNode E = { 16, &F };
 
-    printList(&E);
+    LinkedListPrint(&E);
     removeListDuplicatesNoBuffer(&E);
-    printList(&E);
+    LinkedListPrint(&E);
 
     return 0;
 }

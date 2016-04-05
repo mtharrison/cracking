@@ -1,12 +1,9 @@
 #include <assert.h>
 #include <stdio.h>
+#include "LinkedList.h"
 
-typedef struct node_t {
-    char val;
-    struct node_t *next;
-} Node;
 
-Node *kthToLast(Node *list, int k) {
+LinkedListNode *kthToLast(LinkedListNode *list, int k) {
 
     // Keep an equisitant set of pointer on the list and advance to the end
     //
@@ -35,10 +32,10 @@ Node *kthToLast(Node *list, int k) {
 
 int main(int argc, char **argv) {
 
-    Node D = { 4, NULL };
-    Node C = { 3, &D };
-    Node B = { 2, &C };
-    Node A = { 1, &B };
+    LinkedListNode D = { 4, NULL };
+    LinkedListNode C = { 3, &D };
+    LinkedListNode B = { 2, &C };
+    LinkedListNode A = { 1, &B };
 
     assert(kthToLast(&A, 0)->val == 4);
     assert(kthToLast(&A, 1)->val == 3);

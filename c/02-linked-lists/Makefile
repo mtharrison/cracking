@@ -6,10 +6,12 @@ UTILS = ../utils
 STDPATTERN = $(CXX) $(CFLAGS) $(OUTFILE) $(INFILE)
 
 02-01:
-	$(STDPATTERN) $(UTILS)/BitVector.c
+	$(STDPATTERN) $(UTILS)/BitVector.c $(UTILS)/LinkedList.c
 02-02:
-	$(STDPATTERN)
+	$(STDPATTERN) $(UTILS)/LinkedList.c
 02-03:
-	$(STDPATTERN)
+	$(STDPATTERN) $(UTILS)/LinkedList.c
+02-04:
+	$(STDPATTERN) $(UTILS)/LinkedList.c
 clean:
 	rm *.out
