@@ -15,5 +15,7 @@ STDPATTERN = $(CXX) $(CFLAGS) $(OUTFILE) $(INFILE)
 	$(STDPATTERN) $(UTILS)/LinkedList.c
 02-05:
 	$(STDPATTERN) $(UTILS)/LinkedList.c
+02-06:
+	$(STDPATTERN) $(UTILS)/LinkedList.c
 clean:
 	rm *.out
