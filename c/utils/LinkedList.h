@@ -8,3 +8,4 @@ typedef struct LinkedListNode_t {
 
 void LinkedListPrint (LinkedListNode *node);
 LinkedListNode *LinkedListNew (int value, LinkedListNode *next);
+LinkedListNode *LinkedListQuickCreate (int values[], int num);

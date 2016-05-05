@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <stdio.h>
 #include "LinkedList.h"
 
@@ -36,7 +37,7 @@ int main(int argc, char **argv) {
 
     LinkedListNode *loopNode = DetectLoopStartNode(A);
 
-    printf("Loop start value is %d\n", loopNode->val);
+    assert(loopNode->val == 4);
 
     return 0;
 }
