@@ -32,6 +32,8 @@ bool IsPallindromeSimple(LinkedListNode *list) {
 
     list = orig;
 
+    // Could optimize here by just comparing first half
+
     while (list) {
         if (list->val != rev->val) {
             return false;
