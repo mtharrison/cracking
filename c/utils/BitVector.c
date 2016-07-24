@@ -28,8 +28,8 @@ bool BitVectorGet(BitVector *v, const int slot) {
 }
 
 void BitVectorDestroy(BitVector **bvPtr) {
-	BitVector *p = *bvPtr;
-	free(p->slots);
-	free(p);
-	*bvPtr = NULL;
+    BitVector *p = *bvPtr;
+    free(p->slots);
+    free(p);
+    *bvPtr = NULL;
 }

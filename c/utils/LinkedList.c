@@ -1,10 +1,10 @@
 #include "LinkedList.h"
 
 void LinkedListPrint (LinkedListNode *node) {
-	if (node == NULL) {
-		printf("Can't print NULL list");
-		return;
-	}
+    if (node == NULL) {
+        printf("Can't print NULL list");
+        return;
+    }
     for (;;) {
         printf("%d", node->val);
         node = node->next;
@@ -35,18 +35,18 @@ LinkedListNode *LinkedListQuickCreate (const int values[], const int num) {
 }
 
 void LinkedListDestroy(LinkedListNode **nodePtr) {
-	LinkedListNode *node = *nodePtr;
-	if (node->next == NULL) {
-		free(node);
-		return;
-	}
-	LinkedListNode *curr = node;
-	LinkedListNode *next = node->next;
-	while (next != NULL) {
-		free(curr);
-		curr = next;
-		next = next->next;
-	}
-	free(curr);
-	*nodePtr = NULL;
+    LinkedListNode *node = *nodePtr;
+    if (node->next == NULL) {
+        free(node);
+        return;
+    }
+    LinkedListNode *curr = node;
+    LinkedListNode *next = node->next;
+    while (next != NULL) {
+        free(curr);
+        curr = next;
+        next = next->next;
+    }
+    free(curr);
+    *nodePtr = NULL;
 }
