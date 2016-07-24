@@ -4,7 +4,7 @@
 
 #define STACK_EMPTY_VAL -1
 
-typedef struct Stack_t {
+typedef struct Stack_T {
     LinkedListNode *top;
 } Stack;
 

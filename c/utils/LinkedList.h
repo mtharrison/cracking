@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct LinkedListNode_t {
+typedef struct LinkedListNode_T {
     char val;
-    struct LinkedListNode_t *next;
+    struct LinkedListNode_T *next;
 } LinkedListNode;
 
 void LinkedListPrint (LinkedListNode *node);
-LinkedListNode *LinkedListNew (int value, LinkedListNode *next);
-LinkedListNode *LinkedListQuickCreate (int values[], int num);
+LinkedListNode *LinkedListNew (const int value, LinkedListNode *next);
+LinkedListNode *LinkedListQuickCreate (const int values[], const int num);
+void LinkedListDestroy(LinkedListNode **nodePtr);

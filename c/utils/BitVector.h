@@ -4,13 +4,13 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-struct BitVector {
+typedef struct BitVector_T {
     size_t numSlots;
     char *slots;
-};
+} BitVector;
 
-typedef struct BitVector BitVector;
-
-BitVector *BitVectorNew(size_t numSlots);
-void BitVectorSet(BitVector *v, int slot);
-bool BitVectorGet(BitVector *v, int slot);
+BitVector *BitVectorNew(const size_t numSlots);
+void BitVectorSet(BitVector *v, const int slot);
+void BitVectorClear(BitVector *v, const int slot);
+bool BitVectorGet(BitVector *v, const int slot);
+void BitVectorDestroy(BitVector **bvPtr);
