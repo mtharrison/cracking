@@ -29,3 +29,11 @@ int StackPop (Stack *stack) {
     }
     return val;
 }
+
+void StackDestroy(Stack **stackPtr) {
+
+    Stack *stack = *stackPtr;
+    LinkedListDestroy(&stack->top);
+    free(stack);
+    *stackPtr = NULL;
+}

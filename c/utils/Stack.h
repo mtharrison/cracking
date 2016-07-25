@@ -13,3 +13,4 @@ int StackPeek (Stack *stack);
 int StackPop (Stack *stack);
 void StackPrint (Stack *top);
 void StackPush (Stack *top, int val);
+void StackDestroy(Stack **stackPtr);
