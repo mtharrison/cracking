@@ -11,3 +11,4 @@ typedef struct BinaryTreeNode_T {
 
 BinaryTree *BinaryTreeNodeCreate(int val, BinaryTree *left, BinaryTree *right);
 bool BinaryTreeIsBalanced(BinaryTree *tree);
+int BinaryTreeHeight(BinaryTree *tree);

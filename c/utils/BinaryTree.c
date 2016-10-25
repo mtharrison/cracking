@@ -1,6 +1,7 @@
 #include "BinaryTree.h"
 
 #define BALANCE_HEIGHT_DIFFERENCE_MAX 1
+#define UNBALANCED -1
 #define MAX(a,b) (((a)>(b))?(a):(b))
 
 BinaryTree *BinaryTreeNodeCreate(int val, BinaryTree *left, BinaryTree *right) {
@@ -19,18 +20,18 @@ int BinaryTreeHeight(BinaryTree *tree) {
     }
 
     int heightLeft = BinaryTreeHeight(tree->left);
-    if (heightLeft == -1) {
-        return -1;
+    if (heightLeft == UNBALANCED) {
+        return UNBALANCED;
     }
 
     int heightRight = BinaryTreeHeight(tree->right);
-    if (heightRight == -1) {
-        return -1;
+    if (heightRight == UNBALANCED) {
+        return UNBALANCED;
     }
 
-    int difference = abs(heightRight - heightLeft)
+    int difference = abs(heightRight - heightLeft);
     if (difference > BALANCE_HEIGHT_DIFFERENCE_MAX) {
-        return -1;
+        return UNBALANCED;
     }
 
     return 1 + MAX(heightLeft, heightRight);
@@ -38,5 +39,5 @@ int BinaryTreeHeight(BinaryTree *tree) {
 
 bool BinaryTreeIsBalanced(BinaryTree *tree) {
 
-    return BinaryTreeHeight(tree) != -1;
+    return BinaryTreeHeight(tree) != UNBALANCED;
 }
