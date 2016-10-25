@@ -19,23 +19,24 @@ int BinaryTreeHeight(BinaryTree *tree) {
     }
 
     int heightLeft = BinaryTreeHeight(tree->left);
+    if (heightLeft == -1) {
+        return -1;
+    }
+
     int heightRight = BinaryTreeHeight(tree->right);
+    if (heightRight == -1) {
+        return -1;
+    }
+
+    int difference = abs(heightRight - heightLeft)
+    if (difference > BALANCE_HEIGHT_DIFFERENCE_MAX) {
+        return -1;
+    }
 
     return 1 + MAX(heightLeft, heightRight);
 }
 
 bool BinaryTreeIsBalanced(BinaryTree *tree) {
 
-    if (tree == NULL) {
-        return true;
-    }
-
-    int difference = abs(BinaryTreeHeight(tree->left) - BinaryTreeHeight(tree->right));
-
-    if (difference > BALANCE_HEIGHT_DIFFERENCE_MAX) {
-        return false;
-    }
-
-    return BinaryTreeIsBalanced(tree->left) &&
-           BinaryTreeIsBalanced(tree->right);
+    return BinaryTreeHeight(tree) != -1;
 }
