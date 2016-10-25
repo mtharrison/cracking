@@ -6,3 +6,20 @@ LinkedListGenericNode *LinkedListGenericNew (void *val, LinkedListGenericNode *n
     node->next = next;
     return node;
 }
+
+void LinkedListGenericDestroy(LinkedListGenericNode **nodePtr) {
+    LinkedListGenericNode *node = *nodePtr;
+    if (node->next == NULL) {
+        free(node);
+        return;
+    }
+    LinkedListGenericNode *curr = node;
+    LinkedListGenericNode *next = node->next;
+    while (next != NULL) {
+        free(curr);
+        curr = next;
+        next = next->next;
+    }
+    free(curr);
+    *nodePtr = NULL;
+}

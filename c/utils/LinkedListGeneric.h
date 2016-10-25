@@ -7,3 +7,4 @@ typedef struct LinkedListGenericNode_T {
 } LinkedListGenericNode;
 
 LinkedListGenericNode *LinkedListGenericNew(void *val, LinkedListGenericNode *next);
+void LinkedListGenericDestroy(LinkedListGenericNode **nodePtr);
