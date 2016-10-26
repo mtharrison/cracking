@@ -10,3 +10,4 @@ typedef struct DirectedGraph_T {
 } DirectedGraph;
 
 DirectedGraph *DirectedGraphNodeCreate(int val);
+void DirectedGraphCreateEdge(DirectedGraph *node1, DirectedGraph *node2);

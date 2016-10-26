@@ -8,7 +8,12 @@ void test1() {
     assert(node->edges == NULL);
 }
 
-void test2() {}
+void test2() {
+    DirectedGraph *node1 = DirectedGraphNodeCreate(42);
+    DirectedGraph *node1 = DirectedGraphNodeCreate(43);
+
+    DirectedGraphCreateEdge(node1, node2);
+}
 
 void test3() {}
 
