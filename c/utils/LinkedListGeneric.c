@@ -23,3 +23,19 @@ void LinkedListGenericDestroy(LinkedListGenericNode **nodePtr) {
     free(curr);
     *nodePtr = NULL;
 }
+
+void LinkedListGenericAddItem(LinkedListGenericNode *node, void *val) {
+    LinkedListGenericNode *ptr;
+    ptr = node;
+
+    // Advanced to the end of the list
+
+    while (ptr->next != NULL) {
+        ptr = ptr->next;
+    }
+
+    // Create and insert the new element
+
+    LinkedListGenericNode *newNode = LinkedListGenericNew(val, NULL);
+    ptr->next = newNode;
+}

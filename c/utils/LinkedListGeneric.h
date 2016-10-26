@@ -8,3 +8,4 @@ typedef struct LinkedListGenericNode_T {
 
 LinkedListGenericNode *LinkedListGenericNew(void *val, LinkedListGenericNode *next);
 void LinkedListGenericDestroy(LinkedListGenericNode **nodePtr);
+void LinkedListGenericAddItem(LinkedListGenericNode *node, void *val);
