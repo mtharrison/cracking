@@ -1,9 +1,9 @@
 make test
-# ./tests/BitVectorTest.out
-# ./tests/LinkedListTest.out
-# ./tests/StackTest.out
+./tests/BinaryTreeTest.out
+./tests/BitVectorTest.out
+./tests/DirectedGraphTest.out
 ./tests/LinkedListGenericTest.out
-# ./tests/QueueTest.out
-# ./tests/BinaryTreeTest.out
-# ./tests/DirectedGraphTest.out
+./tests/LinkedListTest.out
+./tests/QueueTest.out
+./tests/StackTest.out
 rm tests/*.out

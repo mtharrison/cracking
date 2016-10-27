@@ -6,8 +6,10 @@
 
 typedef struct DirectedGraph_T {
     int val;
+    bool visited;
     LinkedListGenericNode *edges;
 } DirectedGraph;
 
 DirectedGraph *DirectedGraphNodeCreate(int val);
-void DirectedGraphCreateEdge(DirectedGraph *node1, DirectedGraph *node2);
+void DirectedGraphAddEdge(DirectedGraph *node1, DirectedGraph *node2);
+bool DirectedGraphHasRoute(DirectedGraph *node1, DirectedGraph *node2);
