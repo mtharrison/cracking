@@ -4,12 +4,15 @@
 #include <math.h>
 #include "LinkedListGeneric.h"
 
-typedef struct DirectedGraph_T {
-    int val;
-    bool visited;
+typedef struct DirectedGraphVertex_T {
+    int value;
+    int degree;
     LinkedListGenericNode *edges;
+} DirectedGraphVertex;
+
+typedef struct DirectedGraph_T {
+    int size;
+    DirectedGraphVertex *vertexes;
 } DirectedGraph;
 
-DirectedGraph *DirectedGraphNodeCreate(int val);
-void DirectedGraphAddEdge(DirectedGraph *node1, DirectedGraph *node2);
-bool DirectedGraphHasRoute(DirectedGraph *node1, DirectedGraph *node2);
+DirectedGraph *DirectedGraphCreate(int size);
