@@ -19,3 +19,4 @@ typedef struct DirectedGraph_T {
 DirectedGraph *DirectedGraphCreate(int size);
 DirectedGraphVertex *DirectedGraphVertexAt(DirectedGraph *g, int pos);
 void DirectedGraphAddEdge(DirectedGraph *g, int src, int dst);
+bool DirectedGraphRouteExists(DirectedGraph *g, int src, int dst);

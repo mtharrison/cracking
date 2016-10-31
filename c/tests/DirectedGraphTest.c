@@ -34,7 +34,15 @@ void test2() {
     assert(v0->edges->next->val == DirectedGraphVertexAt(g, 2));
 }
 
-void test3() {}
+void test3() {
+    DirectedGraph *g = DirectedGraphCreate(3);
+    DirectedGraphAddEdge(g, 0, 1);
+    DirectedGraphAddEdge(g, 0, 2);
+    
+    assert(DirectedGraphRouteExists(g, 0, 1) == true);
+    assert(DirectedGraphRouteExists(g, 0, 2) == true);
+    assert(DirectedGraphRouteExists(g, 1, 2) == false);
+}
 
 void test4() {}
 
@@ -43,7 +51,7 @@ int main(int argc, char const **argv) {
 
     test1();
     test2();
-    // test3();
+    test3();
     // test4();
 
     return 0;
