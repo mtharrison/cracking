@@ -6,4 +6,4 @@ make test
 ./tests/LinkedListTest.out
 ./tests/QueueTest.out
 ./tests/StackTest.out
-rm tests/*.out
+rm -rf tests/*.{out,dSYM}

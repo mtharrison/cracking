@@ -34,14 +34,6 @@ void test2() {
 
     BinaryTree *tree = BinaryTreeNodeCreate(1, node2, node3);
 
-    // Confirm the heights of all subtrees
-
-    assert(BinaryTreeHeight(tree) == 3);
-    assert(BinaryTreeHeight(tree->left) == 2);
-    assert(BinaryTreeHeight(tree->right) == 2);
-    assert(BinaryTreeHeight(tree->left->left) == 1);
-    assert(BinaryTreeHeight(tree->right->right) == 1);
-
     assert(BinaryTreeIsBalanced(tree) == true);
 }
 
@@ -67,14 +59,6 @@ void test3() {
 
     BinaryTree *tree = BinaryTreeNodeCreate(1, node2, node3);
 
-    // Confirm the heights of all subtrees
-
-    assert(BinaryTreeHeight(tree) == 3);
-    assert(BinaryTreeHeight(tree->left) == 2);
-    assert(BinaryTreeHeight(tree->right) == 1);
-    assert(BinaryTreeHeight(tree->left->left) == 1);
-    assert(BinaryTreeHeight(tree->left->right) == 1);
-
     assert(BinaryTreeIsBalanced(tree) == true);
 }
 
@@ -98,13 +82,6 @@ void test4() {
     // Build 1st level
 
     BinaryTree *tree = BinaryTreeNodeCreate(1, node2, NULL);
-
-    // Confirm the heights of all subtrees
-
-    assert(BinaryTreeHeight(tree) == 3);
-    assert(BinaryTreeHeight(tree->left) == 2);
-    assert(BinaryTreeHeight(tree->left->left) == 1);
-    assert(BinaryTreeHeight(tree->left->right) == 1);
 
     assert(BinaryTreeIsBalanced(tree) == false);
 }
