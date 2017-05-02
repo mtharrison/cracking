@@ -1,17 +1,15 @@
-package Question_1_1
+package Chapter_1
 
-import (
-	"testing"
-)
-
-type TestCase struct {
-	input       string
-	expectation bool
-}
+import "testing"
 
 func TestIsUniqueChars(t *testing.T) {
 
-	cases := []TestCase{
+	type testCase struct {
+		input       string
+		expectation bool
+	}
+
+	cases := []testCase{
 		{"abc", true},
 		{"abca", false},
 	}

@@ -1,4 +1,4 @@
-package Question_1_1
+package Chapter_1
 
 func IsUniqueChars(input string) bool {
 
