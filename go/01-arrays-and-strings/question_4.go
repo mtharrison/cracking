@@ -1,35 +1,23 @@
 package Chapter_1
 
-func PercentEncode(input string) string {
+// [mr john smith    ]
+//              ^   ^
+//           idx1   idx2
 
-	spaces := 0
-	runes := []rune(input)
+func PercentEncode(input []rune, originalLength int) {
 
-	// one pass through string to identify spaces
+	idx1 := originalLength - 1
+	idx2 := len(input) - 1
 
-	for _, r := range runes {
-		if r == ' ' {
-			spaces++
-		}
-	}
-
-	result := make([]rune, len(input)+spaces*2)
-
-	// another pass to populate result slice
-
-	index := 0
-
-	for _, r := range runes {
-		if r == ' ' {
-			result[index] = '%'
-			result[index+1] = '2'
-			result[index+2] = '0'
-			index += 2
+	for idx1 > 0 {
+		if input[idx1] == ' ' {
+			input[idx2-2], input[idx2-1], input[idx2] = '%', '2', '0'
+			idx2 -= 2
 		} else {
-			result[index] = r
+			input[idx2] = input[idx1]
 		}
-		index++
-	}
 
-	return string(result)
+		idx1--
+		idx2--
+	}
 }
