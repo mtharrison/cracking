@@ -5,12 +5,12 @@ import (
 	"math"
 )
 
-type NNMatrix [][]int
+type NMMatrix [][]int
 type bounds struct {
 	left, right int
 }
 
-func (m NNMatrix) Rotate90() {
+func (m NMMatrix) Rotate90() {
 
 	size := len(m)
 	layers := int(math.Floor(float64(size / 2)))
@@ -27,7 +27,7 @@ func (m NNMatrix) Rotate90() {
 	}
 }
 
-func (m NNMatrix) Equals(n NNMatrix) bool {
+func (m NMMatrix) Equals(n NMMatrix) bool {
 
 	if len(m) != len(n) {
 		return false
@@ -47,7 +47,7 @@ func (m NNMatrix) Equals(n NNMatrix) bool {
 	return true
 }
 
-func (m NNMatrix) Print() {
+func (m NMMatrix) Print() {
 	for _, i := range m {
 		fmt.Print("|")
 		for _, j := range i {
