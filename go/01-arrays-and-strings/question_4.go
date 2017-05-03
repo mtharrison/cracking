@@ -6,8 +6,7 @@ package Chapter_1
 
 func PercentEncode(input []rune, originalLength int) {
 
-	idx1 := originalLength - 1
-	idx2 := len(input) - 1
+	idx1, idx2 := originalLength-1, len(input)-1
 
 	for idx1 > 0 {
 		if input[idx1] == ' ' {
