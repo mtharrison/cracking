@@ -1,6 +1,8 @@
-package Chapter_1
+package chapter1
 
-func (m NMMatrix) ZeroRowAndCol() {
+import "cracking/datastructures"
+
+func zeroRowAndCol(m datastructures.NMMatrix) {
 
 	rows := make([]bool, len(m))
 	cols := make([]bool, len(m))
@@ -21,7 +23,7 @@ func (m NMMatrix) ZeroRowAndCol() {
 	// Make a second pass marking the elements to zero
 
 	for i, a := range m {
-		for j, _ := range a {
+		for j := range a {
 			if rows[i] == true ||
 				cols[j] == true {
 				a[j] = 0

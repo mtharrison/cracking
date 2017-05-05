@@ -1,4 +1,4 @@
-package Chapter_1
+package chapter1
 
 import "testing"
 
@@ -16,7 +16,7 @@ func TestPercentEncode(t *testing.T) {
 
 	for _, c := range cases {
 		before := string(c.input)
-		PercentEncode(c.input, c.length)
+		percentEncode(c.input, c.length)
 		result := string(c.input)
 		if result != c.expectation {
 			t.Errorf("Error calling PercentEncode() on input \"%s\". Expected \"%s\" but got \"%s\".", before, c.expectation, result)

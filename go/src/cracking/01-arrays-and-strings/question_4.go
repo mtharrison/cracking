@@ -1,10 +1,10 @@
-package Chapter_1
+package chapter1
 
 // [mr john smith    ]
 //              ^   ^
 //           idx1   idx2
 
-func PercentEncode(input []rune, originalLength int) {
+func percentEncode(input []rune, originalLength int) {
 
 	idx1, idx2 := originalLength-1, len(input)-1
 

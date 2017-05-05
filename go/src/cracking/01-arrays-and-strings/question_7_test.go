@@ -1,23 +1,26 @@
-package Chapter_1
+package chapter1
 
-import "testing"
+import (
+	"cracking/datastructures"
+	"testing"
+)
 
 func TestZeroRowAndCol(t *testing.T) {
 
 	type testCase struct {
-		input       NMMatrix
-		expectation NMMatrix
+		input       datastructures.NMMatrix
+		expectation datastructures.NMMatrix
 	}
 
 	cases := []testCase{
 		{
-			NMMatrix{
+			datastructures.NMMatrix{
 				{1, 2, 3, 4},
 				{5, 0, 7, 8},
 				{9, 10, 11, 12},
 				{13, 14, 0, 16},
 			},
-			NMMatrix{
+			datastructures.NMMatrix{
 				{1, 0, 0, 4},
 				{0, 0, 0, 0},
 				{9, 0, 0, 12},
@@ -27,7 +30,7 @@ func TestZeroRowAndCol(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		c.input.ZeroRowAndCol()
+		zeroRowAndCol(c.input)
 		if c.input.Equals(c.expectation) != true {
 			t.Errorf("Error calling ZeroRowAndCol()")
 		}

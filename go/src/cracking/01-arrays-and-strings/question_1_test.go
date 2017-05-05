@@ -1,4 +1,4 @@
-package Chapter_1
+package chapter1
 
 import "testing"
 
@@ -15,14 +15,14 @@ func TestIsUniqueChars(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		result := IsUniqueChars(c.input)
+		result := isUniqueChars(c.input)
 		if result != c.expectation {
 			t.Errorf("Error calling IsUniqueChars() on input \"%s\". Expected %t but got %t.", c.input, c.expectation, result)
 		}
 	}
 
 	for _, c := range cases {
-		result := IsUniqueCharsNoSpace(c.input)
+		result := isUniqueCharsNoSpace(c.input)
 		if result != c.expectation {
 			t.Errorf("Error calling IsUniqueChars() on input \"%s\". Expected %t but got %t.", c.input, c.expectation, result)
 		}

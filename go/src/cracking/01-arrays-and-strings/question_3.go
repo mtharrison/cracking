@@ -1,4 +1,4 @@
-package Chapter_1
+package chapter1
 
 import "sort"
 
@@ -22,6 +22,6 @@ func sortStringByRunes(s string) string {
 	return string(runes)
 }
 
-func IsPermutation(input string, compare string) bool {
+func isPermutation(input string, compare string) bool {
 	return sortStringByRunes(input) == sortStringByRunes(compare)
 }

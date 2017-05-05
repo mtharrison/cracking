@@ -1,6 +1,6 @@
-package Chapter_1
+package chapter1
 
-func IsUniqueChars(input string) bool {
+func isUniqueChars(input string) bool {
 
 	m := make(map[rune]bool)
 
@@ -15,7 +15,7 @@ func IsUniqueChars(input string) bool {
 	return true
 }
 
-func IsUniqueCharsNoSpace(input string) bool {
+func isUniqueCharsNoSpace(input string) bool {
 
 	for i, char1 := range input {
 		for j, char2 := range input {

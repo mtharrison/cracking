@@ -1,8 +1,8 @@
-package Chapter_1
+package chapter1
 
 import "strings"
 
-func IsRotation(input string, compare string) bool {
+func isRotation(input string, compare string) bool {
 
 	if len(input) != len(compare) {
 		return false

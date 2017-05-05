@@ -1,4 +1,4 @@
-package Chapter_1
+package chapter1
 
 import "testing"
 
@@ -18,7 +18,7 @@ func TestIsRotation(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		result := IsRotation(c.input, c.compare)
+		result := isRotation(c.input, c.compare)
 		if result != c.expectation {
 			t.Errorf("Error calling IsRotation() on inputs [\"%s\", \"%s\"]. Expected \"%t\" but got \"%t\".", c.input, c.compare, c.expectation, result)
 		}

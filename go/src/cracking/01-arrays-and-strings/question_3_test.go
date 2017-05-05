@@ -1,4 +1,4 @@
-package Chapter_1
+package chapter1
 
 import "testing"
 
@@ -16,7 +16,7 @@ func TestIsPermutation(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		result := IsPermutation(c.input, c.compare)
+		result := isPermutation(c.input, c.compare)
 		if result != c.expectation {
 			t.Errorf("Error calling IsPermutation() on inputs [\"%s\", \"%s\"]. Expected %t but got %t.", c.input, c.compare, c.expectation, result)
 		}

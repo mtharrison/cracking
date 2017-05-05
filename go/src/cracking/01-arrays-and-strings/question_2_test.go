@@ -1,4 +1,4 @@
-package Chapter_1
+package chapter1
 
 import "testing"
 
@@ -16,7 +16,7 @@ func TestStringReverse(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		result := StringReverse(c.input)
+		result := stringReverse(c.input)
 		if result != c.expectation {
 			t.Errorf("Error calling StringReverse() on input \"%s\". Expected %s but got %s.", c.input, c.expectation, result)
 		}

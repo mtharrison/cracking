@@ -1,6 +1,6 @@
-package Chapter_1
+package chapter1
 
-func StringReverse(input string) string {
+func stringReverse(input string) string {
 
 	inputRuneArray := []rune(input)
 	numChars := len(inputRuneArray)
