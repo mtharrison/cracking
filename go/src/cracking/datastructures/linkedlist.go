@@ -50,6 +50,18 @@ func (l1 *LinkedList) Print() {
 	fmt.Print("nil\n")
 }
 
+func (l *LinkedList) ElementAtIndex(index int) *LinkedList {
+
+	for i := 0; i < index; i++ {
+		if l.Next == nil {
+			return nil
+		}
+		l = l.Next
+	}
+
+	return l
+}
+
 func LinkedListCreate(vals []int) *LinkedList {
 
 	if len(vals) < 1 {
