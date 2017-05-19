@@ -5,15 +5,27 @@ package chapter9
 // FOLLOW UP
 // Imagine certain spots are "off limits," such that the robot cannot step on them. Design an algorithm to find a path for the robot from the top left to the bottom right.
 
-func pathsForRobot(x, y, a, b int) int {
+type point struct{ x, y int }
+type grid struct {
+	m, n    int
+	blocked []point
+}
 
-	if a == x && b == y {
+func pathsForRobot(g grid, p point) int {
+
+	if p.x == g.m && p.y == g.n {
 		return 1
 	}
 
-	if a > x || b > y {
+	if p.x > g.m || p.y > g.n {
 		return 0
 	}
 
-	return pathsForRobot(x, y, a+1, b) + pathsForRobot(x, y, a, b+1)
+	for _, b := range g.blocked {
+		if b.x == p.x && b.y == p.y {
+			return 0
+		}
+	}
+
+	return pathsForRobot(g, point{p.x + 1, p.y}) + pathsForRobot(g, point{p.x, p.y + 1})
 }
