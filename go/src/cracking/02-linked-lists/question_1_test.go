@@ -13,14 +13,14 @@ func TestRemoveDuplicates(t *testing.T) {
 	}
 
 	cases := []testCase{
-		// {
-		// 	datastructures.LinkedListCreate([]int{1, 2, 2, 3, 4}),
-		// 	datastructures.LinkedListCreate([]int{1, 2, 3, 4}),
-		// },
-		// {
-		// 	datastructures.LinkedListCreate([]int{1, 2, 3}),
-		// 	datastructures.LinkedListCreate([]int{1, 2, 3}),
-		// },
+		{
+			datastructures.LinkedListCreate([]int{1, 2, 2, 3, 4}),
+			datastructures.LinkedListCreate([]int{1, 2, 3, 4}),
+		},
+		{
+			datastructures.LinkedListCreate([]int{1, 2, 3}),
+			datastructures.LinkedListCreate([]int{1, 2, 3}),
+		},
 		{
 			datastructures.LinkedListCreate([]int{3, 4, 5, 3, 4, 5, 7, 8, 9}),
 			datastructures.LinkedListCreate([]int{3, 4, 5, 7, 8, 9}),
