@@ -28,7 +28,17 @@ func TestAddLists(t *testing.T) {
 		{
 			datastructures.LinkedListCreate([]int{5, 2, 1}), // 125+
 			datastructures.LinkedListCreate([]int{6, 5, 4}), // 456
-			datastructures.LinkedListCreate([]int{9, 7, 5}), // 581=
+			datastructures.LinkedListCreate([]int{1, 8, 5}), // 581=
+		},
+		{
+			datastructures.LinkedListCreate([]int{9, 9, 9}),    //  999+
+			datastructures.LinkedListCreate([]int{9, 9, 9}),    //  999
+			datastructures.LinkedListCreate([]int{8, 9, 9, 1}), // 1998=
+		},
+		{
+			datastructures.LinkedListCreate([]int{9, 9, 9}),          //   999+
+			datastructures.LinkedListCreate([]int{9, 9, 9, 9, 9}),    //  99999
+			datastructures.LinkedListCreate([]int{8, 9, 9, 0, 0, 1}), // 100998=
 		},
 	}
 
