@@ -11,12 +11,17 @@ func addLists(l *datastructures.LinkedList, r *datastructures.LinkedList) *datas
 
 	for {
 
-		resultTail.Val += l.Val
-		resultTail.Val += r.Val
-		l = l.Next
-		r = r.Next
+		if l != nil {
+			resultTail.Val += l.Val
+			l = l.Next
+		}
 
-		if l == nil {
+		if r != nil {
+			resultTail.Val += r.Val
+			r = r.Next
+		}
+
+		if l == nil && r == nil {
 			break
 		}
 

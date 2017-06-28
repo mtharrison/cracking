@@ -20,6 +20,11 @@ func TestAddLists(t *testing.T) {
 			datastructures.LinkedListCreate([]int{6, 5, 4}), // 456
 			datastructures.LinkedListCreate([]int{9, 7, 5}), // 579=
 		},
+		{
+			datastructures.LinkedListCreate([]int{3, 2, 1, 5}), // 5123+
+			datastructures.LinkedListCreate([]int{6, 5, 4}),    //  456
+			datastructures.LinkedListCreate([]int{9, 7, 5, 5}), // 5579=
+		},
 	}
 
 	for _, c := range cases {
