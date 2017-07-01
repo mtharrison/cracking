@@ -19,16 +19,13 @@ func addLists(l *datastructures.LinkedList, r *datastructures.LinkedList) *datas
 		}
 
 		if r != nil {
-
 			sum := resultTail.Val + r.Val
-
 			if sum >= 10 {
 				carry = 1
 				resultTail.Val = sum % 10
 			} else {
 				resultTail.Val = sum
 			}
-
 			r = r.Next
 		}
 
